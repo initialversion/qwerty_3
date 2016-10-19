@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    @movies = current_user.movies
   end
 
   def show
