@@ -1,4 +1,14 @@
 class MoviesController < ApplicationController
+  before_action :current_user_must_be_movie_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_movie_director
+    movie = Movie.find(params[:id])
+
+    unless current_user == movie.director
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @movies = Movie.all
   end
