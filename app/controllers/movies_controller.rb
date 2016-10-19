@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :current_user_must_be_movie_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_movie_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_movie_director
     movie = Movie.find(params[:id])
