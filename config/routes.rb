@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "movies#index"
   # Routes for the Movie resource:
   # CREATE
   get "/movies/new", :controller => "movies", :action => "new"
